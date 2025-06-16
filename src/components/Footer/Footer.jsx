@@ -63,30 +63,23 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-6 text-gradient">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { name: 'About Us', href: '/#about' },
-                { name: 'Our Programs', href: '/#programs' },
-                { name: 'Careers', href: '/#services' },  // Changed from contact to services section
-                { name: 'Success Stories', href: '/#alumni' },
-                { name: 'Achievements', href: '/#achievements' },
+                { name: 'About Us', href: '/about' },
+                { name: 'Our Programs', href: '/programs' },
+                { name: 'News & Blog', href: '/news' },
+                { name: 'Alumni', href: '/alumni' },
+                { name: 'Achievements', href: '/achievements' },
+                { name: 'Quiz', href: '/quiz' },
+                { name: 'Contact Us', href: '/contact' },
                 { name: 'Privacy Policy', href: '/privacy-policy' }
               ].map((link, index) => (
                 <li key={index}>
-                  {link.href.includes('#') ? (
-                    <a 
-                      href={link.href} 
-                      className="text-gray-300 hover:text-lavish-gold transition-colors duration-300 text-sm flex items-center"
-                    >
-                      <span className="mr-2">→</span> {link.name}
-                    </a>
-                  ) : (
-                    <Link 
-                      to={link.href} 
-                      className="text-gray-300 hover:text-lavish-gold transition-colors duration-300 text-sm flex items-center"
-                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    >
-                      <span className="mr-2">→</span> {link.name}
-                    </Link>
-                  )}
+                  <Link 
+                    to={link.href} 
+                    className="text-gray-300 hover:text-lavish-gold transition-colors duration-300 text-sm flex items-center"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  >
+                    <span className="mr-2">→</span> {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>

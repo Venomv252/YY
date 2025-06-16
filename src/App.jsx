@@ -20,6 +20,13 @@ import TermsOfService from './components/Pages/TermsOfService';
 import Disclaimer from './components/Pages/Disclaimer';
 import SiteMap from './components/Pages/SiteMap';
 import AchievementDetail from './components/Pages/AchievementDetail';
+import Contact from './components/Pages/Contact';
+import AboutPage from './components/Pages/About';
+import ProgramsPage from './components/Pages/Programs';
+import NewsPage from './components/Pages/News';
+import AlumniPage from './components/Pages/Alumni';
+import AchievementsPage from './components/Pages/Achievements';
+import QuizPage from './components/Pages/Quiz';
 import './App.css';
 // import TimelineSection from './components/Home/TimelineSection';
 
@@ -45,7 +52,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Home Page Route */}
+        {/* Home Page Route - Streamlined */}
         <Route path="/" element={
           <div className="main-container">
             <Navbar />
@@ -56,22 +63,25 @@ function App() {
                 </div>
               </section>
               
+              {/* Keep only essential sections on home page */}
               <About />
               <Services />
-              <Analytics />
-              <Blog />
-              {/* <TimelineSection/> */}
-              <News />
-              <Alumni />
               <AchievementsSection/>
-              <ProjectsSection/>
-              <QuizSection/>
               <FAQ />
             </main>
             <Footer />
             <ChatWidget />
           </div>
         } />
+
+        {/* Main Content Pages */}
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/programs" element={<ProgramsPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/alumni" element={<AlumniPage />} />
+        <Route path="/achievements" element={<AchievementsPage />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/contact" element={<Contact />} />
 
         {/* Footer Link Pages */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

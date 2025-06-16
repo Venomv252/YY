@@ -66,10 +66,10 @@ const Alumni = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-rich-black">
-            Alumni <span className="text-gradient">Network</span>
+            Our <span className="text-gradient">Distinguished</span> Alumni
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-rich-black/80">
-            Connect with our former interns and learn from their experiences at YugaYatra.
+            Meet the exceptional individuals who have shaped their careers through YugaYatra's transformative programs and continue to inspire the next generation.
           </p>
         </div>
 

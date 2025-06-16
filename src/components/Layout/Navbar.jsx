@@ -49,12 +49,14 @@ const Navbar = () => {
 
   // Define navigation links based on current location
   const navLinks = [
-    { title: 'Home', href: isHomePage ? '#' : '/' },
-    { title: 'Programs', href: isHomePage ? '#programs' : '/#programs' },
-    { title: 'About', href: isHomePage ? '#about' : '/#about' },
-    { title: 'Contact', href: isHomePage ? '#contact' : '/#contact' },
-    { title: 'Achievements', href: isHomePage ? '#achievements' : '/#achievements' },
-    { title: 'Alumni', href: isHomePage ? '#alumni' : '/#alumni' }
+    { title: 'Home', href: '/' },
+    { title: 'About', href: '/about' },
+    { title: 'Programs', href: '/programs' },
+    { title: 'News', href: '/news' },
+    { title: 'Alumni', href: '/alumni' },
+    { title: 'Achievements', href: '/achievements' },
+    { title: 'Quiz', href: '/quiz' },
+    { title: 'Contact', href: '/contact' }
   ];
 
   const handleInputChange = (e) => {
@@ -129,32 +131,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
-              link.href.startsWith('#') ? (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium"
-                >
-                  {link.title}
-                </a>
-              ) : link.href.includes('#') ? (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium"
-                  onClick={() => window.scrollTo(0, 0)}
-                >
-                  {link.title}
-                </a>
-              ) : (
-                <Link
-                  key={index}
-                  to={link.href}
-                  className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium"
-                >
-                  {link.title}
-                </Link>
-              )
+              <Link
+                key={index}
+                to={link.href}
+                className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium"
+              >
+                {link.title}
+              </Link>
             ))}
             <button className="modern-button" onClick={() => setIsFormOpen(true)}>
               Apply for Internship
@@ -180,37 +163,14 @@ const Navbar = () => {
         <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} py-4 transition-all duration-300 ease-in-out`}>
           <div className="flex flex-col space-y-4 bg-white/80 backdrop-blur-md p-4 rounded-lg">
             {navLinks.map((link, index) => (
-              link.href.startsWith('#') ? (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.title}
-                </a>
-              ) : link.href.includes('#') ? (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium py-2"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  {link.title}
-                </a>
-              ) : (
-                <Link
-                  key={index}
-                  to={link.href}
-                  className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.title}
-                </Link>
-              )
+              <Link
+                key={index}
+                to={link.href}
+                className="text-rich-black hover:text-lavish-gold transition-colors duration-300 font-medium py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.title}
+              </Link>
             ))}
             <a
               href="https://api.whatsapp.com/send/?phone=918757728679&text=Hello%2C%20I%20am%20interested%20in%20applying%20for%20an%20internship.%20I%20would%20like%20to%20share%20my%20CV%20for%20your%20review.&type=phone_number&app_absent=0"
