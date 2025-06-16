@@ -1,8 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { FaLinkedin, FaEnvelope, FaGraduationCap } from 'react-icons/fa';
 
 const Alumni = () => {
+  const controls = useAnimation();
+
+  // Trigger animations when component mounts
+  useEffect(() => {
+    controls.start("visible");
+  }, [controls]);
+
   // Alumni data with the provided LinkedIn profiles
   const alumniData = [
     {
@@ -47,8 +54,15 @@ const Alumni = () => {
   };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      } 
+    }
   };
 
   const staggerContainer = {
@@ -56,28 +70,45 @@ const Alumni = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.3,
+        delayChildren: 0.2
       }
+    }
+  };
+
+  const headerAnimation = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      } 
     }
   };
 
   return (
     <section className="py-20 relative overflow-hidden bg-gradient-to-b from-[#FFF8E1]/60 to-[#E7CBA9]/60" id="alumni">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 fade-in">
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          animate={controls}
+          variants={headerAnimation}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-rich-black">
-            Our <span className="text-gradient">Distinguished</span> Alumni
+            Our <span className="text-gradient">Outstanding</span> Alumni
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-rich-black/80">
-            Meet the exceptional individuals who have shaped their careers through YugaYatra's transformative programs and continue to inspire the next generation.
+            Meet the brilliant minds who have shaped their careers through YugaYatra's transformative programs and continue to inspire the next generation.
           </p>
-        </div>
+        </motion.div>
 
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate={controls}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {alumniData.map((alumni) => (
@@ -131,16 +162,21 @@ const Alumni = () => {
           ))}
         </motion.div>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+        >
           <motion.a
-            href="#contact" // Link to contact section or create a dedicated form
+            href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="modern-button inline-block"
           >
             Join Our Alumni Network
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
