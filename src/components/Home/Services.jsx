@@ -323,6 +323,26 @@ const Services = () => {
   
   const programs = [
     {
+      title: "Career Growth Program",
+      description: "Accelerate your professional development with our comprehensive 2-month career growth program. Build essential skills, gain industry insights, and prepare for your dream career.",
+      icon: (
+        <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+          <path d="M19 15L19.5 16.5L21 17L19.5 17.5L19 19L18.5 17.5L17 17L18.5 16.5L19 15Z" fill="currentColor"/>
+          <path d="M5 15L5.5 16.5L7 17L5.5 17.5L5 19L4.5 17.5L3 17L4.5 16.5L5 15Z" fill="currentColor"/>
+          <path d="M12 15L12.5 16.5L14 17L12.5 17.5L12 19L11.5 17.5L10 17L11.5 16.5L12 15Z" fill="currentColor"/>
+        </svg>
+      ),
+      duration: "2 months",
+      skills: ["Leadership", "Communication", "Problem Solving", "Career Planning"],
+      highlights: [
+        "Personalized career roadmap",
+        "Industry expert mentorship",
+        "Professional networking",
+        "Resume & interview prep"
+      ]
+    },
+    {
       title: "Data Visualization",
       description: "Master the art of transforming complex data into compelling visual narratives. Work with real datasets and create impactful visualizations.",
       icon: (
